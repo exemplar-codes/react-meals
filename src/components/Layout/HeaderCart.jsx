@@ -3,14 +3,14 @@ import React from "react";
 import classes from "./HeaderCartButton.module.css";
 import CartIcon from "../Cart/CartIcon";
 
-function HeaderCartButton({ count = 3 }) {
+function HeaderCartButton(props) {
   return (
-    <button className={classes.button}>
+    <button className={classes.button} onClick={props.onClick}>
       <span>
         <CartIcon />
       </span>
       <span>Your Cart</span>
-      <span className={classes.badge}>{count}</span>
+      <span className={classes.badge}>3</span>
     </button>
   );
 }
