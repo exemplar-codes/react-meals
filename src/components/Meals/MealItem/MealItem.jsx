@@ -6,7 +6,7 @@ import MealItemForm from "./MealItemForm";
 
 function MealItem(props, defaultProps) {
   const price = `${props.price.toFixed(2)}`;
-  console.log(defaultProps.key);
+
   return (
     <li className={classes.meal}>
       <div>
