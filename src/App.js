@@ -3,6 +3,7 @@ import Cart from "./components/Cart/Cart";
 
 import Header from "./components/Layout/Header";
 import Meals from "./components/Meals/Meals";
+import GlobalContext from "./store/GlobalContext";
 
 function App() {
   const [cartOpen, setCartOpen] = useState(false);
@@ -11,13 +12,13 @@ function App() {
   const hideCart = () => setCartOpen(false);
 
   return (
-    <>
-      {cartOpen && <Cart onClose={hideCart} />}
-      <Header onShowCart={showCart} />
+    <GlobalContext.Provider value={{ showCart, hideCart }}>
+      {cartOpen && <Cart />}
+      <Header />
       <main>
         <Meals />
       </main>
-    </>
+    </GlobalContext.Provider>
   );
 }
 
