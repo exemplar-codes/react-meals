@@ -18,7 +18,7 @@ function cartReducer(state, action) {
       if (existingCartItemIndex === -1) {
         updatedItems = state.items.concat(action.item);
       } else {
-        state.items[existingCartItemIndex].amount++;
+        state.items[existingCartItemIndex].amount += action.item.amount;
         updatedItems = state.items;
       }
 

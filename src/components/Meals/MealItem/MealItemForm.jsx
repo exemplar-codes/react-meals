@@ -21,6 +21,7 @@ function MealItemForm(props) {
       setAmountIsValid(false);
     else {
       props.onAddToCart(enteredAmountNumber);
+      console.log(enteredAmount);
       if (!amountIsValid) setAmountIsValid(true);
     }
   };
