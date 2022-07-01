@@ -8,8 +8,7 @@ function cartReducer(state, action) {
     case "ADD": {
       const updatedItems = state.items.concat(action.item);
       const updatedTotalAmount =
-        action.totalAmount + action.item.price * action.item.amount;
-
+        state.totalAmount + action.item.price * action.item.amount;
       return { items: updatedItems, totalAmount: updatedTotalAmount };
     }
     case "REMOVE": {
