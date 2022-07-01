@@ -25,14 +25,13 @@ function cartReducer(state, action) {
       return { items: updatedItems, totalAmount: updatedTotalAmount };
     }
     case "REMOVE": {
-      const updatedTotalAmount =
-        action.totalAmount + action.item.price * action.item.amount;
-
       // if an item already exists, decrease it's amount by 1. If it's 1 already, remove it from the items
       const existingCartItemIndex = state.items.findIndex(
         (item) => item.id === action.id
       );
 
+      const updatedTotalAmount =
+        state.totalAmount - state.items[existingCartItemIndex].price;
       if (state.items[existingCartItemIndex].amount > 1) {
         state.items[existingCartItemIndex].amount--;
       } else {
