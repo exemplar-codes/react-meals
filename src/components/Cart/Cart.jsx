@@ -54,6 +54,7 @@ function Cart() {
 
     setIsSubmitting(false); // assume there will be no errors
     setDidSubmit(true);
+    cartCtx.clearCart();
   };
 
   const cartModalContent = (
