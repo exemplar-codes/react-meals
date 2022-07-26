@@ -38,6 +38,16 @@ function Cart() {
     setShowCheckout(true);
   };
 
+  const submitOrderHandler = (userData) => {
+    fetch(
+      "https://react-http-88257-default-rtdb.asia-southeast1.firebasedatabase.app/orders.json",
+      {
+        method: "POST",
+        body: JSON.stringify({ user: userData, orderedItems: cartCtx.items }),
+      }
+    );
+  };
+
   return (
     <Modal onClose={ctx.hideCart}>
       {cartItems}
@@ -46,7 +56,7 @@ function Cart() {
         <span>{totalAmount}</span>
       </div>
       {showCheckout ? (
-        <Checkout onCancel={ctx.hideCart} />
+        <Checkout onCancel={ctx.hideCart} onConfirm={submitOrderHandler} />
       ) : (
         <div className={classes.actions}>
           <button className={classes["button--alt"]} onClick={ctx.hideCart}>
