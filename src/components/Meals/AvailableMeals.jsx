@@ -46,6 +46,8 @@ function AvailableMeals() {
         "https://react-http-88257-default-rtdb.asia-southeast1.firebasedatabase.app/meals.json"
       );
 
+      if (!resp.ok) throw new Error("Empty response");
+
       const data = await resp.json();
 
       setFetchedMeals(
