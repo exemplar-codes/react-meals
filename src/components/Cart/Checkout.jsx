@@ -23,11 +23,13 @@ function Checkout(props) {
         <label htmlFor="city">City</label>
         <input type="text" id="city" />
       </div>
-      <button onClick={props.onCancel} type="button">
-        Cancel
-      </button>
-      &nbsp;
-      <button type="submit">Confirm</button>
+      <div className={classes.action}>
+        <button onClick={props.onCancel} type="button">
+          Cancel
+        </button>
+        &nbsp;
+        <button type="submit">Confirm</button>
+      </div>
     </form>
   );
 }
