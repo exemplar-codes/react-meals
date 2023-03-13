@@ -15,13 +15,12 @@ function MealItemForm(props) {
 
     if (
       enteredAmount.trim().length === 0 ||
-      enteredAmount < 1 ||
+      enteredAmountNumber < 1 ||
       enteredAmountNumber > 5
     )
       setAmountIsValid(false);
     else {
       props.onAddToCart(enteredAmountNumber);
-      console.log(enteredAmount);
       if (!amountIsValid) setAmountIsValid(true);
     }
   };
